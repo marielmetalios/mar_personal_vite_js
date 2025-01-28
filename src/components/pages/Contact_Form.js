@@ -1,45 +1,46 @@
+import React from 'react'
+import { useState } from 'react';
 
+// set original state to empty strings -- 
+const contactMeForm = () => {
+    const [formData, setFormData] = useState( {
+        name: '',
+        email: '',
+        message: '',
+    });
 
-function contactInfo() => {
+    // need to add in handleChange logic!! 
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        return (
+        console.log(`Form submitted with ${formData}`)
+
+    return (
             <div>
                 <form className = "form" onSubmit={handleSubmit}>
-                    <div className = "formInput" >
-                    <h2> Get in Touch </h2>
+                    <h2>Get in Touch!</h2>
                     <input
                         type="text"
                         placeholder="Name"
-                        value={input}
+                        value={formData.name}
                         name="text"
                         onChange = {handleChange}
                     ></input>
                     <input
                     type = "text"
                     placeholder = "Email"
-                    value = {input}
-                    name = "text"
+                    value = {formData.email}
+                    name = "email"
                     onChange = {handleChange}
                     ></input>
-                    <input
-                    type = "text"
+                    <textarea
                     placeholder = "Send a message"
-                    value = {input}
-                    name = "text"
-                    
-
-                    >
-                    </input>
-                
-
+                    value = {formData.message}
+                    name = "message"
+                    onChange = {handleChange}
+                    ></textarea>
+                    <button type='submit'>Submit</button>
                 </form>
             </div>
-        )
-
-
-
-}
-
-// go back in and update className formatting (CSS)
-// 
+        );
+}};
